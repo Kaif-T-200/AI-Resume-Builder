@@ -1,0 +1,50 @@
+{
+  "contact": {
+    "full_name": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "555-987-6543",
+    "location": "Remote",
+    "links": ["https://github.com/janesmith"]
+  },
+  "summary": "Data science graduate focused on applied ML and analytics.",
+  "experience": [
+    {
+      "title": "Data Science Intern",
+      "company": "Insight Labs",
+      "location": "NYC",
+      "start_date": "2024-06-01",
+      "end_date": "2024-08-31",
+      "current": false,
+      "bullets": [
+        "Built churn features that improved AUC by 6%",
+        "Automated model evaluation reports in Python"
+      ],
+      "technologies": ["Python", "pandas", "scikit-learn"],
+      "employment_type": "internship"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Tech University",
+      "degree": "B.S. Data Science",
+      "field": "Data Science",
+      "start_date": "2021-09-01",
+      "end_date": "2025-05-30",
+      "gpa": "3.8"
+    }
+  ],
+  "projects": [
+    {
+      "name": "ML Ops Toolkit",
+      "role": "Creator",
+      "bullets": ["Packaged reusable training pipeline templates"],
+      "stack": ["Python", "MLflow"],
+      "link": "https://github.com/janesmith/ml-ops-toolkit",
+      "outcome": "Used by 3 classmates for capstone projects"
+    }
+  ],
+  "skills": ["Python", "SQL", "MLflow", "pandas"],
+  "certifications": [],
+  "achievements": ["1st place, campus hackathon"],
+  "languages": ["English", "Spanish"]
+}

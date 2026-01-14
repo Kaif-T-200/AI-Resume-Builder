@@ -1,0 +1,117 @@
+AI Resume Builder — Run From Scratch Guide (Simple & Detailed)
+
+This guide helps you reopen the project after a few days and get it running again from zero.
+It works on Windows (WSL), macOS, and Linux.
+
+1) Prerequisites
+- Python: 3.11 or newer (check: python --version)
+- Pip (bundled with Python)
+- A web browser (Chrome/Edge/Firefox)
+- Optional (PDF support): WeasyPrint system libs may be required on Linux: cairo, pango, gdk-pixbuf
+
+2) Open the project folder
+- Project path: /mnt/c/Users/Admin/Desktop/Ai Project
+- In a terminal, run:
+  cd "/mnt/c/Users/Admin/Desktop/Ai Project"
+
+3) Create and activate a virtual environment
+- Create venv (once):
+  python -m venv .venv
+- Activate venv:
+  - Windows PowerShell: .\.venv\Scripts\Activate.ps1
+  - Windows cmd:       .\.venv\Scripts\activate.bat
+  - WSL/Linux/macOS:   source .venv/bin/activate
+- Upgrade pip (recommended):
+  python -m pip install -U pip
+
+4) Install dependencies
+Option A (recommended): install the package with optional PDF extras
+  python -m pip install -e .[pdf]
+
+If the above extras syntax does not work in your shell, you can do:
+  python -m pip install -e .
+  python -m pip install weasyprint
+
+Notes:
+- If WeasyPrint fails to render PDFs on Linux, install system libs, e.g. (Ubuntu/Debian):
+  sudo apt-get update && sudo apt-get install -y libcairo2 libpango-1.0-0 libgdk-pixbuf2.0-0 libffi-dev
+
+5) Start the app
+  streamlit run app.py
+
+- You will see a Local URL, e.g. http://localhost:8501
+- Open it in your browser.
+
+6) Choose AI provider and enter API key
+- In the sidebar you can use:
+  - OpenAI API Key (optional)
+  - Groq API Key (optional)
+- If both are provided, you can pick which provider to use.
+- Where to get keys:
+  - OpenAI: https://platform.openai.com/api-keys
+  - Groq:   https://console.groq.com/keys
+
+7) Generate your resume
+- Choose input format (Plain Text or JSON)
+- Paste your resume data (raw text works fine; JSON gives the best structure)
+- Pick a template: minimal, corporate, or moderate
+- Click "Generate Resume"
+- Preview shows the structured JSON
+- Download as PDF and/or DOCX
+
+8) Common issues & quick fixes
+- Rate limit (429) from OpenAI/Groq:
+  - Wait a minute and retry or switch provider in sidebar.
+- PDF renders blank:
+  - Ensure WeasyPrint is installed (step 4), and try the minimal or corporate template.
+  - On Linux, install system libs (see step 4 notes) and restart the app.
+- Model not found / 404 (for providers):
+  - Make sure you are using the correct provider and you actually entered the key for that provider.
+- JSON parse/validation errors:
+  - Try plain text input first or simplify the text; the app will extract structure.
+- Streamlit not found:
+  - Re-activate venv (step 3) and reinstall (step 4).
+
+9) Daily workflow after a few days (quick recap)
+- Open terminal and go to the project folder:
+  cd "/mnt/c/Users/Admin/Desktop/Ai Project"
+- Activate venv:
+  - Windows (PS): .\.venv\Scripts\Activate.ps1
+  - WSL/Linux/macOS: source .venv/bin/activate
+- (Optional) Update deps:
+  python -m pip install -U -e .[pdf]
+- Run the app:
+  streamlit run app.py
+- Open the URL in the browser and enter your API key.
+
+10) Hosting pointers (optional)
+- Streamlit Community Cloud:
+  - Push the repo to GitHub.
+  - Set up app to run `app.py`.
+  - Add secrets (OPENAI_API_KEY or GROQ_API_KEY) if you want to pre-fill.
+- Any VM/server:
+  - Create venv, install with `pip install -e .[pdf]`, then `streamlit run app.py`.
+  - Expose the port or run behind a reverse proxy.
+
+11) Files to keep vs delete (cleanup)
+Keep (required):
+- pyproject.toml
+- app.py
+- src/resume_ai/** (all code: models, pipeline, providers, renderers, templating)
+- README.md
+
+Optional to keep:
+- samples/ (test inputs)
+
+Safe to delete:
+- src/resume_ai/__pycache__/
+- src/resume_ai.egg-info/
+- Any .pytest_cache/, .streamlit/, venv folders you plan to recreate later
+- Old providers you no longer use (e.g., huggingface_provider.py, gemini_provider.py) if you’ve switched to Groq/OpenAI only
+
+12) Support notes
+- Default provider model (Groq): llama-3.3-70b-versatile
+- If a provider is rate-limited, just switch to the other in the sidebar.
+- For robust PDF output, minimal or corporate templates are the most reliable across environments.
+
+That’s it! Re-run these steps any time you return to the project.

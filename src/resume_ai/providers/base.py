@@ -1,0 +1,8 @@
+from abc import ABC, abstractmethod
+from typing import Optional
+
+
+class LLMProvider(ABC):
+    @abstractmethod
+    def complete(self, *, system_prompt: str, user_prompt: str, temperature: float = 0.2, max_tokens: Optional[int] = None) -> str:
+        raise NotImplementedError

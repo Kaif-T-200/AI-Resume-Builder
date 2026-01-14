@@ -1,0 +1,18 @@
+John Doe
+Anytown, USA | john@example.com | 555-123-4567
+Aspiring software engineer with internship experience and strong problem-solving skills.
+
+Experience
+Intern, Acme Corp (Jun 2024 - Aug 2024)
+- Built an internal dashboard with React and FastAPI
+- Improved API response times by 20% through query optimization
+
+Projects
+Smart Planner App
+- Created a task planner with reminders and calendar sync
+
+Education
+B.S. Computer Science, State University, 2025
+
+Skills
+Python, FastAPI, React, SQL, Git, Docker

@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: resume-ai
+Version: 0.1.0
+Summary: Local-first AI-powered resume builder pipeline
+Author: Your Team
+Requires-Python: >=3.11
+Requires-Dist: pydantic>=2.7
+Requires-Dist: jinja2>=3.1
+Requires-Dist: typer>=0.12
+Requires-Dist: openai>=1.20
+Requires-Dist: requests>=2.31
+Requires-Dist: python-docx>=1.1
+Requires-Dist: streamlit>=1.40
+Provides-Extra: pdf
+Requires-Dist: weasyprint>=61; extra == "pdf"
+Provides-Extra: dev
+Requires-Dist: pytest>=8.2; extra == "dev"
+Requires-Dist: ruff>=0.5; extra == "dev"
